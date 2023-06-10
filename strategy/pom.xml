@@ -11,4 +11,9 @@
         <artifactId>design-patterns</artifactId>
         <version>1.0</version>
     </parent>
+
+    <build>
+        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+    </build>
 </project>
