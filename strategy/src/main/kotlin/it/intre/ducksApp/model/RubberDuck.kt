@@ -1,14 +1,9 @@
 package it.intre.ducksApp.model
 
-class RubberDuck: Duck() {
-    override fun quack() {
-        println("Squeak!")
-    }
+import it.intre.ducksApp.behavior.fly.FlyNoWay
+import it.intre.ducksApp.behavior.quack.Squeak
 
-    override fun fly() {
-        println("Can't fly!")
-    }
-
+class RubberDuck: Duck(FlyNoWay(), Squeak()) {
     override fun display() {
         println("I'm a real Rubber duck")
     }
