@@ -13,6 +13,7 @@
         <module>strategy</module>
         <module>singleton</module>
         <module>observer</module>
+        <module>command</module>
     </modules>
 
     <properties>
