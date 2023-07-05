@@ -8,4 +8,8 @@ class NumericCounter(private var value: Int = 0): Counter {
     override fun get(): Int {
         return value
     }
+
+    override fun set(value: Int) {
+        this.value = value
+    }
 }

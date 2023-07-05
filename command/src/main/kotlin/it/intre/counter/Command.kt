@@ -1,5 +1,6 @@
 package it.intre.counter
 
-fun interface Command {
+interface Command {
     fun execute()
+    fun undo()
 }

@@ -13,6 +13,13 @@ fun main() {
     val button = Button()
     button.setCommand(increase)
     println("Current value: " + counter.get())
+
     button.press()
-    println("Current value: " + counter.get())
+    println("Current value after press: " + counter.get())
+
+    button.press()
+    println("Current value after press: " + counter.get())
+
+    button.undo()
+    println("Current value after undo: " + counter.get())
 }
