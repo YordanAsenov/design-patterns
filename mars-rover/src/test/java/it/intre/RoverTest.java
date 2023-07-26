@@ -19,7 +19,7 @@ public class RoverTest {
     // act
     Rover rover = new Rover(initialPosition, initialDirection);
     // assert
-    Assertions.assertEquals(initialPosition, rover.getInitialPosition());
+    Assertions.assertEquals(initialPosition, rover.getPosition());
     Assertions.assertEquals(initialDirection, rover.getDirection());
   }
 
@@ -37,7 +37,17 @@ public class RoverTest {
     // act
     Rover rover = RoverFactory.create(input);
     // assert
-    Assertions.assertEquals(expectedCoordinates, rover.getInitialPosition());
+    Assertions.assertEquals(expectedCoordinates, rover.getPosition());
     Assertions.assertEquals(expectedDirection, rover.getDirection());
+  }
+
+  @Test
+  void roverMovesForward() {
+    // arrange
+    Rover rover = RoverFactory.create("0,0,N");
+    // act
+    rover.moveForward();
+    // assert
+    Assertions.assertEquals(new Coordinates(0,1), rover.getPosition());
   }
 }
