@@ -8,10 +8,15 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Rover {
-    private final Coordinates position;
-    private final Direction direction;
 
-    public void moveForward() {
-        direction.status.moveForward(this);
-    }
+  private final Coordinates position;
+  private final Direction direction;
+
+  public void moveForward() {
+    direction.status.moveForward(this);
+  }
+
+  public void moveBackward() {
+    direction.status.moveBackward(this);
+  }
 }

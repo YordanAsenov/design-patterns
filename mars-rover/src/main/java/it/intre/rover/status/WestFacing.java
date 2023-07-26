@@ -3,13 +3,14 @@ package it.intre.rover.status;
 import it.intre.rover.Rover;
 
 public class WestFacing implements RoverStatus {
-    @Override
-    public void moveForward(Rover rover) {
-        rover.getPosition().setX(rover.getPosition().getX() - 1);
-    }
 
-    @Override
-    public void moveBackward(Rover rover) {
-        throw new UnsupportedOperationException();
-    }
+  @Override
+  public void moveForward(Rover rover) {
+    rover.getPosition().setX(rover.getPosition().getX() - 1);
+  }
+
+  @Override
+  public void moveBackward(Rover rover) {
+    rover.getPosition().setX(rover.getPosition().getX() + 1);
+  }
 }
