@@ -1,10 +1,13 @@
 
-package it.intre;
+package it.intre.rover;
 
+import it.intre.Coordinates;
+import it.intre.Direction;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
@@ -41,7 +44,13 @@ public class RoverTest {
     Assertions.assertEquals(expectedDirection, rover.getDirection());
   }
 
-  @Test
+  @ParameterizedTest
+  @CsvSource({
+          "0,0,N,0,1",
+          "0,0,E,1,0",
+          "0,0,S,0,-1",
+          "0,0,W,-1,0"
+  })
   void roverMovesForward() {
     // arrange
     Rover rover = RoverFactory.create("0,0,N");

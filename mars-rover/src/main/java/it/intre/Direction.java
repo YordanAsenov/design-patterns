@@ -1,11 +1,19 @@
 package it.intre;
 
-public enum Direction {
-    NORTH('N'), EAST('E'), SOUTH('S'), WEST('W');
-    public final char key;
+import it.intre.rover.status.*;
 
-    Direction(char key) {
+public enum Direction {
+    NORTH('N', new NorthFacing()),
+    EAST('E', new EastFacing()),
+    SOUTH('S', new SouthFacing()),
+    WEST('W', new WestFacing());
+
+    public final char key;
+    public final RoverStatus status;
+
+    Direction(char key, RoverStatus status) {
         this.key = key;
+        this.status = status;
     }
 
     public static Direction valueByKey(char key) {

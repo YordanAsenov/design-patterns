@@ -1,4 +1,6 @@
-package it.intre;
+package it.intre.rover;
+import it.intre.Coordinates;
+import it.intre.Direction;
 
 public class RoverFactory {
     public static Rover create(String input) {
