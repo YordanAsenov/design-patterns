@@ -10,7 +10,7 @@ import lombok.Data;
 public class Rover {
 
   private final Coordinates position;
-  private final Direction direction;
+  private Direction direction;
 
   public void moveForward() {
     direction.status.moveForward(this);
@@ -18,5 +18,13 @@ public class Rover {
 
   public void moveBackward() {
     direction.status.moveBackward(this);
+  }
+
+  public void turnLeft() {
+    direction.status.turnLeft(this);
+  }
+
+  public void turnRight() {
+    direction.status.turnRight(this);
   }
 }

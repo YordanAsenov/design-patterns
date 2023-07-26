@@ -53,4 +53,37 @@ public class RoverTest {
     // assert
     Assertions.assertEquals(new Coordinates(expectedX, expectedY), rover.getPosition());
   }
+
+
+  @ParameterizedTest
+  @CsvSource({
+      "N,W",
+      "W,S",
+      "S,E",
+      "E,N"
+  })
+  void roverTurnLeft(char directionKey, char expectedDirectionKey) {
+    // arrange
+    Rover rover = new Rover(new Coordinates(0, 0), Direction.valueByKey(directionKey));
+    // act
+    rover.turnLeft();
+    // assert
+    Assertions.assertEquals(expectedDirectionKey, rover.getDirection().key);
+  }
+
+  @ParameterizedTest
+  @CsvSource({
+      "W,N",
+      "S,W",
+      "E,S",
+      "N,E"
+  })
+  void roverTurnRight(char directionKey, char expectedDirectionKey) {
+    // arrange
+    Rover rover = new Rover(new Coordinates(0, 0), Direction.valueByKey(directionKey));
+    // act
+    rover.turnRight();
+    // assert
+    Assertions.assertEquals(expectedDirectionKey, rover.getDirection().key);
+  }
 }
