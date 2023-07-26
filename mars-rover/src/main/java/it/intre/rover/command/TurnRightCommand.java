@@ -2,7 +2,8 @@ package it.intre.rover.command;
 
 import it.intre.rover.Rover;
 
-public class TurnRightCommand implements RoverCommand{
+public class TurnRightCommand implements RoverCommand {
+
   private final Rover rover;
 
   public TurnRightCommand(Rover rover) {
@@ -11,6 +12,6 @@ public class TurnRightCommand implements RoverCommand{
 
   @Override
   public void execute() {
-
+    rover.turnRight();
   }
 }
