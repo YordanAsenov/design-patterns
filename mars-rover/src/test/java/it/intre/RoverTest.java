@@ -7,13 +7,15 @@ import org.junit.jupiter.api.Test;
 public class RoverTest {
 
   @Test
-  public void canCreateRover(){
+  public void canCreateRoverWith00AndNorth(){
     // arrange
     Coordinates initialPosition = new Coordinates(0, 0);
+    Direction initialDirection = Direction.NORTH;
     // act
-    Rover rover = new Rover(initialPosition,Direction.NORTH);
+    Rover rover = new Rover(initialPosition, initialDirection);
     // assert
-    Assertions.assertNotNull(rover);
+    Assertions.assertEquals(initialPosition, rover.getInitialPosition());
+    Assertions.assertEquals(initialDirection, rover.getDirection());
   }
 
 }
