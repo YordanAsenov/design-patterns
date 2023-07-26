@@ -6,15 +6,14 @@ import org.junit.jupiter.api.Test;
 
 public class RoverTest {
 
-
   @Test
-  public void createInstance(){
+  public void canCreateRover(){
     // arrange
-    Rover rover = new Rover();
-
+    Coordinates initialPosition = new Coordinates(0, 0);
+    // act
+    Rover rover = new Rover(initialPosition,Direction.NORTH);
     // assert
     Assertions.assertNotNull(rover);
   }
-
 
 }
