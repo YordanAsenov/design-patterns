@@ -11,19 +11,7 @@ public class CommandFactory {
     return Arrays.stream(commands.split(""))
         .map(cmdString -> cmdString.charAt(0))
         .map(CommandEnum::valueByKey)
-        .map(cmd -> createCommand(rover, cmd))
+        .map(cmd -> cmd.createCmd(rover))
         .collect(Collectors.toList());
-  }
-
-  private static RoverCommand createCommand(Rover rover, CommandEnum command) {
-    RoverCommand cmd = null;
-    switch (command) {
-      case Forward -> cmd = new MoveForwardCommand(rover);
-      case Backward -> cmd = new MoveBackwardCommand(rover);
-      case TurnLeft -> cmd = new TurnLeftCommand(rover);
-      case TurnRight -> cmd = new TurnRightCommand(rover);
-    }
-
-    return cmd;
   }
 }
