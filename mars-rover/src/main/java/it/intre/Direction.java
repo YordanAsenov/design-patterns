@@ -1,5 +1,6 @@
 package it.intre;
 
+import it.intre.rover.Rover;
 import it.intre.rover.status.*;
 
 public enum Direction {
@@ -23,5 +24,21 @@ public enum Direction {
             }
         }
         return null;
+    }
+
+    public void moveForward(Rover rover) {
+        this.status.moveForward(rover);
+    }
+
+    public void moveBackward(Rover rover) {
+        this.status.moveBackward(rover);
+    }
+
+    public void turnLeft(Rover rover) {
+        this.status.turnLeft(rover);
+    }
+
+    public void turnRight(Rover rover) {
+        this.status.turnRight(rover);
     }
 }

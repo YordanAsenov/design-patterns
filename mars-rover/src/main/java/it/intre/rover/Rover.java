@@ -13,19 +13,19 @@ public class Rover {
   private Direction direction;
 
   public void moveForward() {
-    direction.status.moveForward(this);
+    direction.moveForward(this);
   }
 
   public void moveBackward() {
-    direction.status.moveBackward(this);
+    direction.moveBackward(this);
   }
 
   public void turnLeft() {
-    direction.status.turnLeft(this);
+    direction.turnLeft(this);
   }
 
   public void turnRight() {
-    direction.status.turnRight(this);
+    direction.turnRight(this);
   }
 
   public void incrementY() {

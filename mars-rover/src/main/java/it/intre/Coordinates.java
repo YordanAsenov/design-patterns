@@ -1,8 +1,5 @@
 package it.intre;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 public record Coordinates(int x, int y) {
     public Coordinates incrementX() {
         return new Coordinates(x + 1, y);
