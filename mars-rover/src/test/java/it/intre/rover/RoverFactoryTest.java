@@ -12,20 +12,20 @@ class RoverFactoryTest {
 
   private static Stream<Arguments> canCreateRoverFromStringParametersArgs() {
     return Stream.of(
-        Arguments.of("0,0,N", new Coordinates(0, 0), Direction.NORTH),
-        Arguments.of("1,3,S", new Coordinates(1, 3), Direction.SOUTH),
-        Arguments.of("3,2,W", new Coordinates(3, 2), Direction.WEST)
+        Arguments.of("0,0,N", new Coordinates(0, 0), Direction.NORTH.getStatus()),
+        Arguments.of("1,3,S", new Coordinates(1, 3), Direction.SOUTH.getStatus()),
+        Arguments.of("3,2,W", new Coordinates(3, 2), Direction.WEST.getStatus())
     );
   }
 
   @ParameterizedTest
   @MethodSource("canCreateRoverFromStringParametersArgs")
   public void canCreateRoverFromStringParameters(String input, Coordinates expectedCoordinates,
-      Direction expectedDirection) {
+      RoverStatus expectedDirection) {
     // act
     Rover rover = RoverFactory.create(input);
     // assert
     Assertions.assertEquals(expectedCoordinates, rover.getPosition());
-    Assertions.assertEquals(expectedDirection, rover.getDirection());
+    Assertions.assertEquals(expectedDirection, rover.getStatus());
   }
 }

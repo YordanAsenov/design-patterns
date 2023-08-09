@@ -15,7 +15,7 @@ class CommandFactoryTest {
   @Test
   void parseCommand() {
     // Arrange
-    Rover r = new Rover(new Coordinates(0, 0), Direction.NORTH);
+    Rover r = new Rover(new Coordinates(0, 0), Direction.NORTH.getStatus());
     String cmdString = "fffblfbr";
     List<Class<? extends RoverCommand>> expectedCmdClasses = List.of(
         MoveForwardCommand.class,
@@ -56,7 +56,7 @@ class CommandFactoryTest {
   })
   void executeCommands(String cmdString, int expectedX, int expectedY, char expectedDirectionKey) {
     // Arrange
-    Rover r = new Rover(new Coordinates(10, 10), Direction.NORTH);
+    Rover r = new Rover(new Coordinates(10, 10), Direction.NORTH.getStatus());
 
     // 10 10 N
     // f 10 11 N
@@ -71,11 +71,11 @@ class CommandFactoryTest {
 
     // Act
     List<RoverCommand> roverCommands = CommandFactory.parseCommand(r, cmdString);
-    roverCommands.forEach(cmd -> cmd.execute());
+    roverCommands.forEach(RoverCommand::execute);
 
     // Assert
     Assertions.assertEquals(new Coordinates(expectedX, expectedY), r.getPosition());
-    Assertions.assertEquals(expectedDirectionKey, r.getDirection().key);
+    Assertions.assertEquals(expectedDirectionKey, r.getStatus().getKey());
 
   }
 }

@@ -14,12 +14,12 @@ public class RoverTest {
   public void canCreateRoverWith00AndNorth() {
     // arrange
     Coordinates initialPosition = new Coordinates(0, 0);
-    Direction initialDirection = Direction.NORTH;
+    RoverStatus initialStatus = Direction.NORTH.getStatus();
     // act
-    Rover rover = new Rover(initialPosition, initialDirection);
+    Rover rover = new Rover(initialPosition, initialStatus);
     // assert
     Assertions.assertEquals(initialPosition, rover.getPosition());
-    Assertions.assertEquals(initialDirection, rover.getDirection());
+    Assertions.assertEquals(initialStatus, rover.getStatus());
   }
 
   @ParameterizedTest
@@ -31,7 +31,7 @@ public class RoverTest {
   })
   void roverMovesForward(int x, int y, char direction, int expectedX, int expectedY) {
     // arrange
-    Rover rover = new Rover(new Coordinates(x, y), Direction.valueByKey(direction));
+    Rover rover = new Rover(new Coordinates(x, y), Direction.valueByKey(direction).getStatus());
     // act
     rover.moveForward();
     // assert
@@ -47,7 +47,7 @@ public class RoverTest {
   })
   void roverMovesBackward(int x, int y, char direction, int expectedX, int expectedY) {
     // arrange
-    Rover rover = new Rover(new Coordinates(x, y), Direction.valueByKey(direction));
+    Rover rover = new Rover(new Coordinates(x, y), Direction.valueByKey(direction).getStatus());
     // act
     rover.moveBackward();
     // assert
@@ -64,11 +64,11 @@ public class RoverTest {
   })
   void roverTurnLeft(char directionKey, char expectedDirectionKey) {
     // arrange
-    Rover rover = new Rover(new Coordinates(0, 0), Direction.valueByKey(directionKey));
+    Rover rover = new Rover(new Coordinates(0, 0), Direction.valueByKey(directionKey).getStatus());
     // act
     rover.turnLeft();
     // assert
-    Assertions.assertEquals(expectedDirectionKey, rover.getDirection().key);
+    Assertions.assertEquals(expectedDirectionKey, rover.getStatus().getKey());
   }
 
   @ParameterizedTest
@@ -80,10 +80,10 @@ public class RoverTest {
   })
   void roverTurnRight(char directionKey, char expectedDirectionKey) {
     // arrange
-    Rover rover = new Rover(new Coordinates(0, 0), Direction.valueByKey(directionKey));
+    Rover rover = new Rover(new Coordinates(0, 0), Direction.valueByKey(directionKey).getStatus());
     // act
     rover.turnRight();
     // assert
-    Assertions.assertEquals(expectedDirectionKey, rover.getDirection().key);
+    Assertions.assertEquals(expectedDirectionKey, rover.getStatus().getKey());
   }
 }

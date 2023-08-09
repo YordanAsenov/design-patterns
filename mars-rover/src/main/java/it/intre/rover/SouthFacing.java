@@ -16,11 +16,16 @@ public class SouthFacing implements RoverStatus {
 
   @Override
   public void turnLeft(Rover rover) {
-    rover.setDirection(Direction.EAST);
+    rover.setStatus(Direction.EAST.getStatus());
   }
 
   @Override
   public void turnRight(Rover rover) {
-    rover.setDirection(Direction.WEST);
+    rover.setStatus(Direction.WEST.getStatus());
+  }
+
+  @Override
+  public char getKey() {
+    return 'S';
   }
 }

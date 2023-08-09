@@ -12,4 +12,6 @@ public interface RoverStatus {
   void turnLeft(Rover rover);
 
   void turnRight(Rover rover);
+
+  char getKey();
 }

@@ -1,7 +1,6 @@
 package it.intre.rover;
 
 import it.intre.Coordinates;
-import it.intre.Direction;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,22 +9,22 @@ import lombok.Data;
 public class Rover {
 
   private Coordinates position;
-  private Direction direction;
+  private RoverStatus status;
 
   public void moveForward() {
-    direction.moveForward(this);
+    status.moveForward(this);
   }
 
   public void moveBackward() {
-    direction.moveBackward(this);
+    status.moveBackward(this);
   }
 
   public void turnLeft() {
-    direction.turnLeft(this);
+    status.turnLeft(this);
   }
 
   public void turnRight() {
-    direction.turnRight(this);
+    status.turnRight(this);
   }
 
   void incrementY() {
