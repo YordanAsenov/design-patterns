@@ -1,7 +1,6 @@
 package it.intre;
 
-import it.intre.rover.Rover;
-import it.intre.rover.status.*;
+import it.intre.rover.*;
 
 public enum Direction {
     NORTH('N', new NorthFacing()),

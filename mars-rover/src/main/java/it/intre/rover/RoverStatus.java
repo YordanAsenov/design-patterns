@@ -1,4 +1,4 @@
-package it.intre.rover.status;
+package it.intre.rover;
 
 
 import it.intre.rover.Rover;

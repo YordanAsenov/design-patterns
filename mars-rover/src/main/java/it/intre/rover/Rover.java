@@ -28,19 +28,19 @@ public class Rover {
     direction.turnRight(this);
   }
 
-  public void incrementY() {
+  void incrementY() {
     this.position = this.position.incrementY();
   }
 
-  public void decrementY() {
+  void decrementY() {
     this.position = this.position.decrementY();
   }
 
-  public void decrementX() {
+  void decrementX() {
     this.position = this.position.decrementX();
   }
 
-  public void incrementX() {
+  void incrementX() {
     this.position = this.position.incrementX();
   }
 }

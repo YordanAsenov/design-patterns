@@ -1,27 +1,26 @@
-package it.intre.rover.status;
+package it.intre.rover;
 
 import it.intre.Direction;
-import it.intre.rover.Rover;
 
-public class EastFacing implements RoverStatus {
+public class NorthFacing implements RoverStatus {
 
   @Override
   public void moveForward(Rover rover) {
-    rover.incrementX();
+    rover.incrementY();
   }
 
   @Override
   public void moveBackward(Rover rover) {
-    rover.decrementX();
+    rover.decrementY();
   }
 
   @Override
   public void turnLeft(Rover rover) {
-    rover.setDirection(Direction.NORTH);
+    rover.setDirection(Direction.WEST);
   }
 
   @Override
   public void turnRight(Rover rover) {
-    rover.setDirection(Direction.SOUTH);
+    rover.setDirection(Direction.EAST);
   }
 }
