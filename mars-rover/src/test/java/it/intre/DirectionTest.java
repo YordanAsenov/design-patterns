@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class DirectionTest {
     @ParameterizedTest
     @CsvSource({"N,NORTH", "E,EAST", "S,SOUTH", "W,WEST"})
-    void valueByKey(char input, Direction expected) {
+    void valueByKey(char input, Direction expected) throws Exception {
         assertEquals(expected, Direction.valueByKey(input));
     }
 }

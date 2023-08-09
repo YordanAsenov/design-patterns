@@ -29,7 +29,7 @@ public class RoverTest {
       "0,0,S,0,-1",
       "0,0,W,-1,0"
   })
-  void roverMovesForward(int x, int y, char direction, int expectedX, int expectedY) {
+  void roverMovesForward(int x, int y, char direction, int expectedX, int expectedY) throws Exception {
     // arrange
     Rover rover = new Rover(new Coordinates(x, y), Direction.valueByKey(direction).getStatus());
     // act
@@ -45,7 +45,7 @@ public class RoverTest {
       "0,0,S,0,1",
       "0,0,W,1,0"
   })
-  void roverMovesBackward(int x, int y, char direction, int expectedX, int expectedY) {
+  void roverMovesBackward(int x, int y, char direction, int expectedX, int expectedY) throws Exception {
     // arrange
     Rover rover = new Rover(new Coordinates(x, y), Direction.valueByKey(direction).getStatus());
     // act
@@ -62,7 +62,7 @@ public class RoverTest {
       "S,E",
       "E,N"
   })
-  void roverTurnLeft(char directionKey, char expectedDirectionKey) {
+  void roverTurnLeft(char directionKey, char expectedDirectionKey) throws Exception {
     // arrange
     Rover rover = new Rover(new Coordinates(0, 0), Direction.valueByKey(directionKey).getStatus());
     // act
@@ -78,7 +78,7 @@ public class RoverTest {
       "E,S",
       "N,E"
   })
-  void roverTurnRight(char directionKey, char expectedDirectionKey) {
+  void roverTurnRight(char directionKey, char expectedDirectionKey) throws Exception {
     // arrange
     Rover rover = new Rover(new Coordinates(0, 0), Direction.valueByKey(directionKey).getStatus());
     // act

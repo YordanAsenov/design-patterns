@@ -16,13 +16,13 @@ public enum Direction {
         this.status = status;
     }
 
-    public static Direction valueByKey(char key) {
+    public static Direction valueByKey(char key) throws Exception {
         for (Direction d: values()) {
             if (d.key == key) {
                 return d;
             }
         }
-        return null;
+        throw new Exception("Unknown direction");
     }
 
     public RoverStatus getStatus() {

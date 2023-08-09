@@ -21,7 +21,7 @@ class RoverFactoryTest {
   @ParameterizedTest
   @MethodSource("canCreateRoverFromStringParametersArgs")
   public void canCreateRoverFromStringParameters(String input, Coordinates expectedCoordinates,
-      RoverStatus expectedDirection) {
+      RoverStatus expectedDirection) throws Exception {
     // act
     Rover rover = RoverFactory.create(input);
     // assert
