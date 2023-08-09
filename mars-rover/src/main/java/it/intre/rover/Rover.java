@@ -1,6 +1,8 @@
 package it.intre.rover;
 
 import it.intre.Coordinates;
+import it.intre.Direction;
+import it.intre.Planet;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,6 +12,7 @@ public class Rover {
 
   private Coordinates position;
   private RoverStatus status;
+  private Planet planet;
 
   public void moveForward() {
     status.moveForward(this);
@@ -27,19 +30,7 @@ public class Rover {
     status.turnRight(this);
   }
 
-  void incrementY() {
-    this.position = this.position.incrementY();
-  }
-
-  void decrementY() {
-    this.position = this.position.decrementY();
-  }
-
-  void decrementX() {
-    this.position = this.position.decrementX();
-  }
-
-  void incrementX() {
-    this.position = this.position.incrementX();
+  void moveToward(Direction direction) {
+    position = planet.getNextCoordinates(position, direction);
   }
 }

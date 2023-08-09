@@ -28,4 +28,8 @@ public enum Direction {
     public RoverStatus getStatus() {
         return this.status;
     }
+
+    public Coordinates nextCoordinates(Coordinates currentPosition) {
+        return getStatus().nextPosition(currentPosition);
+    }
 }

@@ -1,17 +1,18 @@
 package it.intre.rover;
 
+import it.intre.Coordinates;
 import it.intre.Direction;
 
 public class WestFacing implements RoverStatus {
 
   @Override
   public void moveForward(Rover rover) {
-    rover.decrementX();
+    rover.moveToward(Direction.WEST);
   }
 
   @Override
   public void moveBackward(Rover rover) {
-    rover.incrementX();
+    rover.moveToward(Direction.EAST);
   }
 
   @Override
@@ -27,5 +28,10 @@ public class WestFacing implements RoverStatus {
   @Override
   public char getKey() {
     return 'W';
+  }
+
+  @Override
+  public Coordinates nextPosition(Coordinates coordinates) {
+    return coordinates.decrementX();
   }
 }

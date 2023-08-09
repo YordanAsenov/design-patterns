@@ -1,7 +1,7 @@
 package it.intre.rover;
 
 
-import it.intre.rover.Rover;
+import it.intre.Coordinates;
 
 public interface RoverStatus {
 
@@ -14,4 +14,6 @@ public interface RoverStatus {
   void turnRight(Rover rover);
 
   char getKey();
+
+  Coordinates nextPosition(Coordinates coordinates);
 }

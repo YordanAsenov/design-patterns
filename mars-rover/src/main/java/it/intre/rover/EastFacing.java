@@ -1,17 +1,18 @@
 package it.intre.rover;
 
+import it.intre.Coordinates;
 import it.intre.Direction;
 
 public class EastFacing implements RoverStatus {
 
   @Override
   public void moveForward(Rover rover) {
-    rover.incrementX();
+    rover.moveToward(Direction.EAST);
   }
 
   @Override
   public void moveBackward(Rover rover) {
-    rover.decrementX();
+    rover.moveToward(Direction.WEST);
   }
 
   @Override
@@ -27,5 +28,10 @@ public class EastFacing implements RoverStatus {
   @Override
   public char getKey() {
     return 'E';
+  }
+
+  @Override
+  public Coordinates nextPosition(Coordinates coordinates) {
+    return coordinates.incrementX();
   }
 }

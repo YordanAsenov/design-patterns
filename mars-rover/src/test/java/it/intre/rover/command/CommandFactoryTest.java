@@ -2,6 +2,7 @@ package it.intre.rover.command;
 
 import it.intre.Coordinates;
 import it.intre.Direction;
+import it.intre.Planet;
 import it.intre.rover.Rover;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,11 +12,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class CommandFactoryTest {
+  Planet planet = new Planet(1000, 1000);
 
   @Test
   void parseCommand() {
     // Arrange
-    Rover r = new Rover(new Coordinates(0, 0), Direction.NORTH.getStatus());
+    Rover r = new Rover(new Coordinates(0, 0), Direction.NORTH.getStatus(), planet);
     String cmdString = "fffblfbr";
     List<Class<? extends RoverCommand>> expectedCmdClasses = List.of(
         MoveForwardCommand.class,
@@ -56,7 +58,7 @@ class CommandFactoryTest {
   })
   void executeCommands(String cmdString, int expectedX, int expectedY, char expectedDirectionKey) {
     // Arrange
-    Rover r = new Rover(new Coordinates(10, 10), Direction.NORTH.getStatus());
+    Rover r = new Rover(new Coordinates(10, 10), Direction.NORTH.getStatus(), planet);
 
     // 10 10 N
     // f 10 11 N
