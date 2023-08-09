@@ -7,12 +7,12 @@ public class NorthFacing implements RoverStatus {
 
   @Override
   public void moveForward(Rover rover) {
-    rover.getPosition().setY(rover.getPosition().getY() + 1);
+    rover.incrementY();
   }
 
   @Override
   public void moveBackward(Rover rover) {
-    rover.getPosition().setY(rover.getPosition().getY() - 1);
+    rover.decrementY();
   }
 
   @Override

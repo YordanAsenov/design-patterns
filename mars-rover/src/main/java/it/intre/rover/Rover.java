@@ -9,7 +9,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class Rover {
 
-  private final Coordinates position;
+  private Coordinates position;
   private Direction direction;
 
   public void moveForward() {
@@ -26,5 +26,21 @@ public class Rover {
 
   public void turnRight() {
     direction.status.turnRight(this);
+  }
+
+  public void incrementY() {
+    this.position = this.position.incrementY();
+  }
+
+  public void decrementY() {
+    this.position = this.position.decrementY();
+  }
+
+  public void decrementX() {
+    this.position = this.position.decrementX();
+  }
+
+  public void incrementX() {
+    this.position = this.position.incrementX();
   }
 }
