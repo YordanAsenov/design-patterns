@@ -3,6 +3,8 @@ package it.intre.rover;
 import it.intre.Coordinates;
 import it.intre.Direction;
 import java.util.stream.Stream;
+
+import it.intre.Planet;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -21,9 +23,11 @@ class RoverFactoryTest {
   @ParameterizedTest
   @MethodSource("canCreateRoverFromStringParametersArgs")
   public void canCreateRoverFromStringParameters(String input, Coordinates expectedCoordinates,
-      RoverStatus expectedDirection) throws Exception {
+                                                 RoverStatus expectedDirection) throws Exception {
+    // arrange
+    Planet planet = new Planet(1000, 1000);
     // act
-    Rover rover = RoverFactory.create(input);
+    Rover rover = RoverFactory.create(input, planet);
     // assert
     Assertions.assertEquals(expectedCoordinates, rover.getPosition());
     Assertions.assertEquals(expectedDirection, rover.getStatus());
