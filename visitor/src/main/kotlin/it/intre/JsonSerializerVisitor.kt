@@ -18,7 +18,7 @@ class JsonSerializerVisitor : Visitor() {
             result.appendLine()
         }
         indent--
-        result.append("\t".repeat(indent) + "]}\n")
+        result.append("\t".repeat(indent) + "]}")
     }
 
     override fun doSomethingWithLeaf(leaf: Leaf) {

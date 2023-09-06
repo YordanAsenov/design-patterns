@@ -36,8 +36,7 @@ class JsonSerializerVisitorTest {
         val expected = """{ "children" : [
             |	{ "name" : "leaf3" },
             |	{ "name" : "leaf4" }
-            |]}
-            |""".trimMargin()
+            |]}""".trimMargin()
         assertEquals(expected, result)
     }
 
@@ -59,7 +58,7 @@ class JsonSerializerVisitorTest {
         val result = serializer.getResult()
 
         // Assert
-        val expected = """{ "children" : [ 
+        val expected = """{ "children" : [
             |	{ "name" : "leaf1" },
             |	{ "name" : "leaf2" },
             |	{ "children" : [
