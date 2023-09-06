@@ -16,6 +16,7 @@
         <module>command</module>
         <module>mars-rover</module>
         <module>prototype</module>
+        <module>visitor</module>
     </modules>
 
     <properties>
