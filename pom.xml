@@ -14,7 +14,8 @@
         <module>singleton</module>
         <module>observer</module>
         <module>command</module>
-      <module>mars-rover</module>
+        <module>mars-rover</module>
+        <module>prototype</module>
     </modules>
 
     <properties>
