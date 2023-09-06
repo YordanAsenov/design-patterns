@@ -5,14 +5,18 @@ import kotlin.text.StringBuilder
 class XmlSerializerVisitor : Visitor() {
     private var result: StringBuilder = StringBuilder()
 
+    private var indent = 0
+
     override fun doSomethingWithComposite(composite: Composite) {
-        result.append("<composite>")
+        result.appendLine("\t".repeat(indent) + "<composite>")
+        indent++
         composite.children.forEach { it.accept(this) }
-        result.append("</composite>")
+        indent--
+        result.appendLine("\t".repeat(indent) + "</composite>")
     }
 
     override fun doSomethingWithLeaf(leaf: Leaf) {
-        result.append("<leaf>${leaf.name}</leaf>")
+        result.appendLine("\t".repeat(indent) + listOf("<leaf>", leaf.name, "</leaf>").joinToString(""))
     }
 
     override fun getResult(): String = result.toString()

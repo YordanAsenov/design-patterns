@@ -15,7 +15,8 @@ class XmlSerializerVisitorTest {
         val result = serializer.getResult()
 
         // Assert
-        val expected = "<leaf>leaf1</leaf>"
+        val expected = "<leaf>leaf1</leaf>\n"
+
         assertEquals(expected, result)
     }
 
@@ -32,7 +33,11 @@ class XmlSerializerVisitorTest {
         val result = serializer.getResult()
 
         // Assert
-        val expected = "<composite><leaf>leaf3</leaf><leaf>leaf4</leaf></composite>"
+        val expected = """<composite>
+            |	<leaf>leaf3</leaf>
+            |	<leaf>leaf4</leaf>
+            |</composite>
+            |""".trimMargin()
         assertEquals(expected, result)
     }
 
@@ -54,7 +59,18 @@ class XmlSerializerVisitorTest {
         val result = serializer.getResult()
 
         // Assert
-        val expected = "<leaf>leaf1</leaf><leaf>leaf2</leaf><composite><leaf>leaf5</leaf><leaf>leaf6</leaf><composite><leaf>leaf3</leaf><leaf>leaf4</leaf></composite></composite>"
+        val expected =
+            """<leaf>leaf1</leaf>
+                |<leaf>leaf2</leaf>
+                |<composite>
+                |	<leaf>leaf5</leaf>
+                |	<leaf>leaf6</leaf>
+                |	<composite>
+                |		<leaf>leaf3</leaf>
+                |		<leaf>leaf4</leaf>
+                |	</composite>
+                |</composite>
+                |""".trimMargin()
         assertEquals(expected, result)
     }
 }
