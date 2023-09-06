@@ -2,20 +2,20 @@ package it.intre
 
 import kotlin.test.assertEquals
 
-class XmlSerializerVisitorTest {
+class JsonSerializerVisitorTest {
 
     @org.junit.jupiter.api.Test
     fun testOneLeaf() {
 
         val leaf1 = Leaf("leaf1")
 
-        val serializer = XmlSerializerVisitor()
+        val serializer = JsonSerializerVisitor()
         leaf1.accept(serializer)
 
         val result = serializer.getResult()
 
         // Assert
-        val expected = "<leaf>leaf1</leaf>\n"
+        val expected = """{ "name" : "leaf1" }""".trimMargin()
 
         assertEquals(expected, result)
     }
@@ -27,16 +27,16 @@ class XmlSerializerVisitorTest {
         val leaf4 = Leaf("leaf4")
         val composite1 = Composite(listOf(leaf3, leaf4))
 
-        val serializer = XmlSerializerVisitor()
+        val serializer = JsonSerializerVisitor()
         composite1.accept(serializer)
 
         val result = serializer.getResult()
 
         // Assert
-        val expected = """<composite>
-            |	<leaf>leaf3</leaf>
-            |	<leaf>leaf4</leaf>
-            |</composite>
+        val expected = """{ "children" : [
+            |	{ "name" : "leaf3" },
+            |	{ "name" : "leaf4" }
+            |]}
             |""".trimMargin()
         assertEquals(expected, result)
     }
@@ -53,26 +53,24 @@ class XmlSerializerVisitorTest {
         val composite1 = Composite(listOf(leaf3, leaf4))
         val composite2 = Composite(listOf(leaf5, leaf6, composite1))
 
-        val serializer = XmlSerializerVisitor()
+        val serializer = JsonSerializerVisitor()
         Composite(listOf(leaf1, leaf2, composite2)).accept(serializer)
 
         val result = serializer.getResult()
 
         // Assert
-        val expected =
-                """<composite>
-                |	<leaf>leaf1</leaf>
-                |	<leaf>leaf2</leaf>
-                |	<composite>
-                |		<leaf>leaf5</leaf>
-                |		<leaf>leaf6</leaf>
-                |		<composite>
-                |			<leaf>leaf3</leaf>
-                |			<leaf>leaf4</leaf>
-                |		</composite>
-                |	</composite>
-                |</composite>
-                |""".trimMargin()
+        val expected = """{ "children" : [ 
+            |	{ "name" : "leaf1" },
+            |	{ "name" : "leaf2" },
+            |	{ "children" : [
+            |		{ "name" : "leaf5" },
+            |		{ "name" : "leaf6" },
+            |		{ "children" : [
+            |			{ "name" : "leaf3" },
+            |			{ "name" : "leaf4" }
+            |		]}
+            |	]}
+            |]}""".trimMargin()
         assertEquals(expected, result)
     }
 }
